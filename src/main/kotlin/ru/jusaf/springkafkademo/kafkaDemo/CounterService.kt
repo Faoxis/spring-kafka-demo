@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger
 @Service
 class CounterService {
 
-    private val counter = AtomicInteger(0)
+    private var counter = AtomicInteger(0)
 
     fun increment() {
         counter.incrementAndGet()
