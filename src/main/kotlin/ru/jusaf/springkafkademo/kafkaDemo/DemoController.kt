@@ -7,17 +7,19 @@ import java.util.*
 
 @RestController
 class DemoController(
-    private val template: KafkaTemplate<String, String>,
+    private val template: KafkaTemplate<String, Any>,
     private val counterService: CounterService
 ) {
 
-    private val topic = "spring-kafka-demo"
+    private val userTopic = "spring-kafka-demo"
+    private val Topic = "spring-kafka-demo"
 
-    @GetMapping("/send-random-message")
+    @GetMapping("/send-random-user-message")
     fun sendRandomMessage(): String {
-        template.send(topic, UUID.randomUUID().toString(), UUID.randomUUID().toString())
+        template.send(userTopic, UUID.randomUUID().toString(), User("Petya", 42))
         return "OK"
     }
+
 
     @GetMapping("/counter-result")
     fun getCounterResult() = counterService.getResult()

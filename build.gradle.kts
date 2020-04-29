@@ -26,6 +26,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.kafka:spring-kafka")
 
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+")
+
 	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
 	implementation("org.apache.logging.log4j:log4j-core:2.13.0")
 
